@@ -1,4 +1,19 @@
 import checkPropTypes from 'check-prop-types';
+import { createStore, applyMiddleware } from 'redux';
+
+import {middlewares} from '../src/configureStore';
+
+import rootReducers from '../src/reducers';
+
+/**
+ * @param {object} initialState Initial State for store
+ * @function storeFactory
+ * @return {Store} - Redux store.
+ */
+export const storeFactory = (initialState)=>{
+  const createStoreMiddlewares = applyMiddleware(...middlewares)(createStore);
+  return createStoreMiddlewares(rootReducers, initialState);
+};
 
 /**
  * Return node(s) with the given data-test attribute
