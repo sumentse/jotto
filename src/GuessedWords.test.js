@@ -63,4 +63,9 @@ describe('if there are words guessed', ()=>{
     expect(guessWordsNodes.length).toBe(guessedWords.length);
   });
 
+  it('display the total guesses', ()=>{
+    const totalGuessNode = findByTestAttr(wrapper, 'total-guess');
+    expect(totalGuessNode.text()).toBe((guessedWords.length).toString());
+  });
+
 });

@@ -38,6 +38,7 @@ const GuessedWords = (props)=>{
             {guessedWordRows}
           </tbody>
         </table>
+        <div>Total number of guesses: <span data-test="total-guess">{props.guessedWords.length}</span></div>
       </div>
     );
   }
